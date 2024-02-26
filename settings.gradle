@@ -1,0 +1,49 @@
+pluginManagement {
+    repositories {
+        maven { url "https://jitpack.io" }
+        maven { url  'https://repo1.maven.org/maven2/'}
+        google()
+        mavenCentral()
+        gradlePluginPortal()
+    }
+}
+
+dependencyResolutionManagement {
+    repositoriesMode.set(RepositoriesMode.FAIL_ON_PROJECT_REPOS)
+    repositories {
+        google()
+        mavenCentral()
+    }
+    versionCatalogs{
+        create('androidxLibs'){
+            //别名，group，artifact，version
+            //androidx.core:core-ktx:1.8.0
+            library('core-ktx','androidx.core','core-ktx').version('1.8.0')
+            //androidx.lifecycle:lifecycle-runtime-ktx:2.3.1
+            library('lifecycle-runtime-ktx','androidx.lifecycle','lifecycle-runtime-ktx').version('2.3.1')
+            //androidx.activity:activity-compose:1.5.1
+            library('activity-compose','androidx.activity','activity-compose').version('1.5.1')
+            //  implementation "androidx.navigation:navigation-fragment-ktx:$nav_version"
+            //  implementation "androidx.navigation:navigation-ui-ktx:$nav_version"
+            library('navigation-fragment-ktx','androidx.navigation','navigation-fragment-ktx').version('2.7.7')
+            library('navigation-ui-ktx','androidx.navigation','navigation-ui-ktx').version('2.7.7')
+            //组合依赖，组合依赖的名称，[依赖1别名，依赖2别名。。。]
+            bundle('androidx',['core-ktx','lifecycle-runtime-ktx','activity-compose','navigation-fragment-ktx',
+            'navigation-ui-ktx'])
+        }
+        //// Kotlin
+
+
+        create('buildSdk'){
+            version('compileSdk','34')
+            version('minSdk','24')
+            version('targetSdk','34')
+        }
+
+        create('libs'){
+            from(files('project.version.toml'))
+        }
+    }
+}
+rootProject.name = "JetpackAndroid"
+include ':app'

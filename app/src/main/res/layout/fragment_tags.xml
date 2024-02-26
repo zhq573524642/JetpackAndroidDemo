@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    tools:context=".old.home.TagsFragment">
+    <TextView
+        android:layout_gravity="center_horizontal"
+        android:layout_width="wrap_content"
+        android:text="TagsFragment"
+        android:layout_marginTop="30dp"
+        android:layout_height="wrap_content"/>
+    <Button
+        android:id="@+id/btn_navigate_to_user_fragment"
+        android:layout_marginTop="30dp"
+        android:textAllCaps="false"
+        android:text="跳转UserFragment\n移除Category和Tags并保存状态"
+        android:layout_gravity="center_horizontal"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"/>
+
+</LinearLayout>
